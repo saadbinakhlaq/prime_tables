@@ -1,0 +1,300 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'features/**/*.feature'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'Rakefile'
+    - 'spec/spec_helper.rb'
+
+  TargetRubyVersion: 2.3
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+  Enabled: false
+
+# Offense count: 1
+Security/Eval:
+  Exclude:
+    - 'spec/helpers/application_helper_spec.rb'
+
+# Offense count: 3
+Lint/HandleExceptions:
+  Exclude:
+    - 'app/services/search_indexers/creditors_v2.rb'
+    - 'bin/rails'
+    - 'bin/rake'
+
+# Offense count: 7
+Lint/RescueException:
+  Exclude:
+    - 'app/jobs/send_letter.rb'
+    - 'app/jobs/send_summary_email.rb'
+    - 'app/models/switch/letter.rb'
+    - 'app/services/backend/aldebaran.rb'
+    - 'app/services/backend/storage_service.rb'
+    - 'config/initializers/exception_logging.rb'
+
+# Offense count: 102
+Metrics/AbcSize:
+  Max: 84
+
+# Offense count: 1
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+# Offense count: 15
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 331
+  Exclude:
+    - 'app/models/switch/user.rb'
+
+# Offense count: 18
+Metrics/CyclomaticComplexity:
+  Max: 37
+
+# Offense count: 1562
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 250
+
+# Offense count: 112
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 94
+
+# Offense count: 1
+# Configuration parameters: CountComments.
+Metrics/ModuleLength:
+  Max: 160
+
+# Offense count: 1
+# Configuration parameters: CountKeywordArgs.
+Metrics/ParameterLists:
+  Max: 6
+
+# Offense count: 14
+Metrics/PerceivedComplexity:
+  Max: 30
+
+# Offense count: 13
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/api/countries_controller.rb'
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/atlas/mandates_controller.rb'
+    - 'app/controllers/atlas/users_controller.rb'
+    - 'app/controllers/switch_classic/api/mandates_controller.rb'
+    - 'app/controllers/switch_classic/api/users_controller.rb'
+    - 'app/controllers/switch_reload/api/banks_controller.rb'
+    - 'app/controllers/switch_reload/api/creditors_controller.rb'
+    - 'app/controllers/switch_reload/registrations_controller.rb'
+    - 'app/controllers/switch_reload/users_controller.rb'
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: braces, no_braces, context_dependent
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+# Cop supports --auto-correct.
+# Configuration parameters: IndentWhenRelativeTo, SupportedStyles, IndentOneStep, IndentationWidth.
+# SupportedStyles: case, end
+Layout/CaseIndentation:
+  IndentationWidth: end
+
+# Offense count: 124
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: nested, compact
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Offense count: 13
+# Cop supports --auto-correct.
+# Configuration parameters: Keywords.
+# Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW
+Style/CommentAnnotation:
+  Exclude:
+    - 'app/controllers/cached_controller.rb'
+    - 'app/models/switch/bank.rb'
+    - 'app/models/switch/creditors/address.rb'
+    - 'app/models/switch/post_address.rb'
+    - 'app/models/switch/user.rb'
+    - 'app/services/backend/standing_orders/initiation_update.rb'
+    - 'app/services/business/letter_poster.rb'
+    - 'lib/finreach_importers/bianca_import.rb'
+    - 'lib/finreach_importers/cordelia_import_v2.rb'
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, SingleLineConditionsOnly.
+# SupportedStyles: assign_to_condition, assign_inside_condition
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_to_condition
+
+# Offense count: 177
+Style/Documentation:
+  Enabled: false
+
+# Offense count: 45
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: leading, trailing
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: empty_lines, no_empty_lines
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: empty_lines, no_empty_lines
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+
+# Offense count: 3
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues.
+# SupportedStyles: ruby19, ruby19_no_mixed_keys, hash_rockets
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+
+# Offense count: 22
+# Cop supports --auto-correct.
+Style/NumericLiterals:
+  MinDigits: 11
+
+# Offense count: 9
+# Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist.
+# NamePrefix: is_, has_, have_
+# NamePrefixBlacklist: is_, has_, have_
+# NameWhitelist: is_a?
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/models/switch/mandate.rb'
+    - 'app/models/switch/user.rb'
+    - 'app/services/finders/banks.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: SupportedStyles.
+# SupportedStyles: compact, exploded
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+# Offense count: 191
+# Cop supports --auto-correct.
+Style/RedundantSelf:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
+# SupportedStyles: slashes, percent_r, mixed
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+
+# Offense count: 22
+# Cop supports --auto-correct.
+Style/RescueModifier:
+  Enabled: false
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: space, no_space
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: space, no_space
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
+# SupportedStyles: space, no_space
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: space, no_space
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: no_space
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
+# SupportedStyles: single_quotes, double_quotes
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: final_newline, final_blank_line
+Layout/TrailingBlankLines:
+  EnforcedStyle: final_newline
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: snake_case, camelCase
+Naming/VariableName:
+  EnforcedStyle: snake_case
+
+# Offense count: 15
+# Cop supports --auto-correct.
+# Configuration parameters: SupportedStyles, WordRegex.
+# SupportedStyles: percent, brackets
+Style/WordArray:
+  EnforcedStyle: percent
+  MinSize: 6
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Layout/SpaceBeforeFirstArg:
+  AllowForAlignment: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true

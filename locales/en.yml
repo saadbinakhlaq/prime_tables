@@ -1,0 +1,4 @@
+---
+en:
+  errors:
+    invalid_argument: Enter a number greater than 1
